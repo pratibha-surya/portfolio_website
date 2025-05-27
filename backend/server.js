@@ -6,7 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-import connectDB from './config/db.js';
+import {connectDB} from './config/db.js';
 import ProjectRoutes from "./routes/ProjectRoutes.js"
 
 
