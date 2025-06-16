@@ -24,23 +24,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://portfolio-website-wqqs.onrender.com'
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: ['http://localhost:5173', 'https://portfolio-website-wqqs.onrender.com'],
     credentials: true,
   })
 );
+
+
+
 
 
 
