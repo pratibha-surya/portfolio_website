@@ -47,12 +47,12 @@ const CreateProjectForm = () => {
     try {
       if (editId) {
         await axios.put(
-          `http://localhost:5000/api/v1/project/${editId}`,
+          `/api/v1/project/${editId}`,
           payload
         );
         setEditId(null);
       } else {
-        await axios.post("http://localhost:5000/api/v1/project/create", payload);
+        await axios.post("/api/v1/project/create", payload);
       }
 
       setFormData({
@@ -88,7 +88,7 @@ const CreateProjectForm = () => {
   // Handle delete
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/project/${id}`);
+      await axios.delete(`/api/v1/project/${id}`);
       fetchProjects();
     } catch (err) {
       console.error("Delete error:", err);
