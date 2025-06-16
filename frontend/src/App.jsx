@@ -6,6 +6,7 @@ import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 import Skills from "./pages/Skills";
 
+
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/skills" element={<Skills/>}/>
           <Route path="/projects" element={<Project />} />
           <Route path="/contact" element={<Contact />} />
+          
         </Routes>
       </div>
     </Router>

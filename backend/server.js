@@ -33,15 +33,15 @@ app.use(express.json());
 
 // Routes
 app.use('/api/v1/auth', ProjectRoutes);
-
+app.use('/api/v1/project',ProjectRoutes)
 
 
 
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-app.use("/", (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-});
+ app.use("/", (req, res) => {
+   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+ });
 
 
 // Start server
