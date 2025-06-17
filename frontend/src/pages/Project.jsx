@@ -167,58 +167,66 @@ const CreateProjectForm = () => {
         All Projects
       </h2>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((project) => (
-          <div
-            key={project._id}
-            className="bg-white shadow-md border rounded-lg p-5 hover:shadow-xl transition"
-          >
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
-              {project.title}
-            </h3>
-            <p className="text-gray-600 mb-2">{project.description}</p>
-            <p className="text-sm text-gray-500 mb-2">
-              <strong>Tech:</strong>{" "}
-              {Array.isArray(project.techStack)
-                ? project.techStack.join(", ")
-                : ""}
-            </p>
-            <div className="text-sm text-blue-600 mb-2">
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noreferrer"
-                className="underline"
-              >
-                GitHub
-              </a>{" "}
-              |{" "}
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noreferrer"
-                className="underline"
-              >
-                Live
-              </a>
-            </div>
-            <div className="flex gap-4 mt-4">
-              <button
-                onClick={() => handleEdit(project)}
-                className="px-4 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => handleDelete(project._id)}
-                className="px-4 py-1 bg-red-600 text-white rounded hover:bg-red-700"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+  <div className="grid md:grid-cols-2 gap-8">
+  {projects.map((project, index) => (
+    <div
+      key={project._id}
+      className="bg-white rounded-xl p-6 shadow-xl border border-gray-200 transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:rotate-1"
+      data-aos="fade-up"
+      data-aos-delay={index * 100}
+      data-aos-duration="800"
+    >
+      <h3 className="text-2xl font-bold text-gray-800 mb-2">
+        {project.title}
+      </h3>
+
+      <p className="text-gray-600 mb-3">{project.description}</p>
+
+      <p className="text-sm text-gray-500 mb-3">
+        <strong className="text-gray-700">Tech:</strong>{' '}
+        {Array.isArray(project.techStack)
+          ? project.techStack.join(', ')
+          : ''}
+      </p>
+
+      <div className="flex items-center gap-4 text-sm text-blue-600 font-medium mb-4">
+        <a
+          href={project.githubLink}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline"
+        >
+          GitHub
+        </a>
+        |
+        <a
+          href={project.liveLink}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline"
+        >
+          Live
+        </a>
       </div>
+
+      <div className="flex gap-4">
+        <button
+          onClick={() => handleEdit(project)}
+          className="px-4 py-2 rounded bg-yellow-500 hover:bg-yellow-600 text-white transition"
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => handleDelete(project._id)}
+          className="px-4 py-2 rounded bg-red-600 hover:bg-red-700 text-white transition"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 };
