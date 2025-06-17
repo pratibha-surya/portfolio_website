@@ -16,7 +16,7 @@ const CreateProjectForm = () => {
   // Fetch all projects
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/v1/project");
+      const res = await axios.get("/api/v1/project");
       setProjects(res.data);
     } catch (err) {
       console.error("Error fetching projects:", err);
